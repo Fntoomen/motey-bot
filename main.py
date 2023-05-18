@@ -18,7 +18,7 @@ async def on_message(message):
         await message.channel.send('https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/4x.webp')
         await message.delete()
     if message.content.startswith('aha'):
-        await message.channel.send('https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.webp')
+        await message.channel.send('https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif')
         await message.delete()
 
 client.run('TOKEN')
