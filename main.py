@@ -17,25 +17,16 @@ async def on_message(message):
         return
 
 
-
-    if any(emote in message.content for emote in emotes.keys()):
-
+    if any( emote in message.content for emote in emotes.keys() ):
         # replace text with emotes
         msg = message.content
         for k in emotes:
-            msg = msg.replace(k, f'[{k}]({emotes[k]})')
-
-
-        embed = discord.Embed()
-        embed.description = msg
+            msg = msg.replace( k, emotes[k] )
 
         # print the message as user
-        webhook = await message.channel.create_webhook(name=message.author.name)
-        await webhook.send(
-            embed=embed, username=message.author.name, avatar_url=message.author.avatar)
-
+        webhook = await message.channel.create_webhook( name=message.author.name )
+        await webhook.send( msg, username=message.author.name, avatar_url=message.author.avatar )
         webhooks = await message.channel.webhooks()
-
 
         # clean up
         for webhook in webhooks:
