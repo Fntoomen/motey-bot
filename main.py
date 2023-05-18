@@ -1,46 +1,45 @@
 import discord
-from discord.ext.commands import Bot
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-client = Bot(command_prefix='', intents=intents)
+client = discord.Client(intents=intents)
 
-@client.command()
-async def aha(ctx):
-        await ctx.message.delete()
-        webhook = await ctx.channel.create_webhook(name=ctx.author.nick)
-        await webhook.send(
-            'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif', username=ctx.author.name, avatar_url=ctx.author.avatar)
-
-        webhooks = await ctx.channel.webhooks()
-        for webhook in webhooks:
-                await webhook.delete()
-
-@client.command()
-async def xdd(ctx):
-        await ctx.message.delete()
-        webhook = await ctx.channel.create_webhook(name=ctx.author.nick)
-        await webhook.send(
-            'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp', username=ctx.author.name, avatar_url=ctx.author.avatar)
-
-        webhooks = await ctx.channel.webhooks()
-        for webhook in webhooks:
-                await webhook.delete()
-
-@client.command()
-async def nerd(ctx):
-        await ctx.message.delete()
-        webhook = await ctx.channel.create_webhook(name=ctx.author.nick)
-        await webhook.send(
-            'https://cdn.7tv.app/emote/6134bc74f67d73ea27e44b0f/4x.gif', username=ctx.author.name, avatar_url=ctx.author.avatar)
-
-        webhooks = await ctx.channel.webhooks()
-        for webhook in webhooks:
-                await webhook.delete()
+emotes = {'xdd': 'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp', 'aha': 'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif', 'nerd': 'https://cdn.7tv.app/emote/6134bc74f67d73ea27e44b0f/4x.gif'}
 
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+
+
+    if any(emote in message.content for emote in emotes.keys()):
+
+        # replace text with emotes
+        msg = message.content
+        for k in emotes:
+            msg = msg.replace(k, f'[{k}]({emotes[k]})')
+
+
+        embed = discord.Embed()
+        embed.description = msg
+
+        # print the message as user
+        webhook = await message.channel.create_webhook(name=message.author.name)
+        await webhook.send(
+            embed=embed, username=message.author.name, avatar_url=message.author.avatar)
+
+        webhooks = await message.channel.webhooks()
+
+
+        # clean up
+        for webhook in webhooks:
+                await webhook.delete()
+        await message.delete()
 
 client.run('TOKEN')
