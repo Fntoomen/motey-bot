@@ -5,7 +5,7 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
-emotes = {'xdd': 'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp', 'aha': 'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif', 'nerd': 'https://cdn.7tv.app/emote/6134bc74f67d73ea27e44b0f/4x.gif'}
+emotes = {'xdd': 'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp', 'aha': 'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif', 'nerd': 'https://cdn.7tv.app/emote/6134bc74f67d73ea27e44b0f/4x.gif', 'kurwa': 'https://media.tenor.com/xMbga2RiU1IAAAAC/o-kurwa-stachu-jones.gif'}
 
 @client.event
 async def on_ready():
@@ -17,11 +17,10 @@ async def on_message(message):
         return
 
 
-    if any( emote in message.content for emote in emotes.keys() ):
+    if any( message.content == emote for emote in emotes.keys() ):
         # replace text with emotes
         msg = message.content
-        for k in emotes:
-            msg = msg.replace( k, emotes[k] )
+        msg = msg.replace( k, emotes[k] )
 
         # print the message as user
         webhook = await message.channel.create_webhook( name=message.author.name )
