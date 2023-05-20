@@ -17,19 +17,19 @@ async def on_message(message):
         return
 
 
-    if any( message.content == emote for emote in emotes.keys() ):
-        # replace text with emotes
-        msg = message.content
-        msg = msg.replace( k, emotes[k] )
+    for emote in emotes.keys():
+        if message.content == emote:
+            # replace text with emotes
+            msg = emotes[emote]
 
-        # print the message as user
-        webhook = await message.channel.create_webhook( name=message.author.name )
-        await webhook.send( msg, username=message.author.name, avatar_url=message.author.avatar )
-        webhooks = await message.channel.webhooks()
+            # print the message as user
+            webhook = await message.channel.create_webhook( name=message.author.name )
+            await webhook.send( msg, username=message.author.name, avatar_url=message.author.avatar )
+            webhooks = await message.channel.webhooks()
 
-        # clean up
-        for webhook in webhooks:
-                await webhook.delete()
-        await message.delete()
+            # clean up
+            for webhook in webhooks:
+                    await webhook.delete()
+            await message.delete()
 
 client.run('TOKEN')
