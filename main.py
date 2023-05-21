@@ -76,16 +76,14 @@ async def on_message(message):
             await webhook.send( msg,
  username=message.author.name,
  avatar_url=message.author.avatar )
-            webhooks = await message.channel.webhooks()
 
             # clean up
-            for webhook in webhooks:
-                    await webhook.delete()
+            await webhook.delete()
 
 
     for emote in emotes.keys():
         if message.content == emote:
-            # replace text with emotes
+            # replace text with emote
             msg = emotes[emote]
 
             # print the message as user
@@ -93,11 +91,9 @@ async def on_message(message):
             await webhook.send( msg,
  username=message.author.name,
  avatar_url=message.author.avatar )
-            webhooks = await message.channel.webhooks()
 
             # clean up
-            for webhook in webhooks:
-                    await webhook.delete()
+            await webhook.delete()
             await message.delete()
 
 
