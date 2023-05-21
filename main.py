@@ -22,6 +22,22 @@ emotes = {
  'jasperCola': 'https://cdn.7tv.app/emote/60b252030fc2b1dc12b7a9f7/4x.gif',
  'Dance': 'https://cdn.7tv.app/emote/60b3c994e6585cf119a1ed57/4x.gif',
  'wuda': 'https://cdn.7tv.app/emote/60b4f64435d6af7b69132aa0/4x.gif',
+ 'GIGACHAD': 'https://cdn.7tv.app/emote/60ae958e229664e8667aea38/4x.gif',
+ 'MONKE': 'https://cdn.7tv.app/emote/60ae6bc786fc40d488d98cbd/4x.gif',
+ 'xd': 'https://cdn.7tv.app/emote/60773136a807bed006130b28/4x.gif',
+ 'LMAO': 'https://cdn.7tv.app/emote/60ae4b670e354776345e6c19/4x.gif',
+ 'Tssk': 'https://cdn.7tv.app/emote/60ae387cb2ecb0150505e235/4x.gif',
+ 'Madge': 'https://cdn.7tv.app/emote/60a95f109d598ea72fad13bd/4x.webp',
+ 'Okayge': 'https://cdn.7tv.app/emote/605391a99d9e96000d244fd0/4x.webp',
+ 'Weirdge': 'https://cdn.7tv.app/emote/604a93564d948c001460998b/4x.webp',
+ 'NOPERS': 'https://cdn.7tv.app/emote/604097c3cf6746000db10344/4x.gif',
+ 'pepeJAM': 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/4x.gif',
+ 'FloppaHey': 'https://cdn.7tv.app/emote/6043b2b31d4963000d9dae68/4x.gif',
+ 'BRUHBRUH': 'https://cdn.7tv.app/emote/603f4fc7115b55000d728300/4x.gif',
+ 'Floppas': 'https://cdn.7tv.app/emote/603eb97c115b55000d7282ec/4x.gif',
+ 'peepoGlad': 'https://cdn.7tv.app/emote/603d32e968a0fc000dfdda1a/4x.webp',
+ 'Sadge': 'https://cdn.7tv.app/emote/603cac391cd55c0014d989be/4x.webp',
+ 'Okayeg': 'https://cdn.7tv.app/emote/603caa69faf3a00014dff0b1/4x.webp',
 }
 
 @client.event
