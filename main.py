@@ -69,20 +69,24 @@ async def on_message(message):
 
 
     if "windows" in message.content.lower():
-            msg = "I FUCKIN' LOVE ADS"
+        # Windows = DIESOFCRINGE
+        msg = "I FUCKIN' LOVE WINDOWS 'N ADS!"
 
-            # print the message as user
-            webhook = await message.channel.create_webhook( name=message.author.name )
-            await webhook.send( msg,
- username=message.author.name,
- avatar_url=message.author.avatar )
+        # print the message as user
+        webhook = await message.channel.create_webhook( name=message.author.name )
+        await webhook.send( msg,
+username=message.author.name,
+avatar_url=message.author.avatar )
 
-            # clean up
-            await webhook.delete()
+        # clean up
+        await webhook.delete()
 
 
     for emote in emotes.keys():
         if message.content == emote:
+            # delete the message (at the start to avoid 404s)
+            await message.delete()
+
             # replace text with emote
             msg = emotes[emote]
 
@@ -92,9 +96,8 @@ async def on_message(message):
  username=message.author.name,
  avatar_url=message.author.avatar )
 
-            # clean up
+            # delete the webhook
             await webhook.delete()
-            await message.delete()
 
 
 
