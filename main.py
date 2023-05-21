@@ -62,7 +62,7 @@ async def on_message(message):
     global counter
     counter += 1
 
-    if counter >= 10:
+    if counter >= 50:
         msg = random.choice(list(emotes.values()))
         await message.channel.send(msg)
         counter = 0
