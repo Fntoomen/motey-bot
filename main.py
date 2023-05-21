@@ -1,12 +1,16 @@
 import discord
 import random
 
+
+
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+
 counter = 0
+
 emotes = {
     'xdd': 'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp',
     'aha': 'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif',
@@ -42,21 +46,27 @@ emotes = {
     'Okayeg': 'https://cdn.7tv.app/emote/603caa69faf3a00014dff0b1/4x.webp',
 }
 
+
+
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+
 @client.event
 async def on_message(message):
-    global counter
-    counter += 1
     if message.author == client.user:
         return
+
+
+    global counter
+    counter += 1
 
     if counter >= 10:
         msg = random.choice(list(emotes.values()))
         await message.channel.send(msg)
         counter = 0
+
 
     if "windows" in message.content.lower():
             msg = "I FUCKIN' LOVE ADS"
@@ -71,6 +81,7 @@ async def on_message(message):
             # clean up
             for webhook in webhooks:
                     await webhook.delete()
+
 
     for emote in emotes.keys():
         if message.content == emote:
@@ -88,5 +99,7 @@ async def on_message(message):
             for webhook in webhooks:
                     await webhook.delete()
             await message.delete()
+
+
 
 client.run('TOKEN')
