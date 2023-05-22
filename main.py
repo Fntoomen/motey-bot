@@ -44,6 +44,7 @@ emotes = {
     'peepoGlad': 'https://cdn.7tv.app/emote/603d32e968a0fc000dfdda1a/4x.webp',
     'Sadge': 'https://cdn.7tv.app/emote/603cac391cd55c0014d989be/4x.webp',
     'Okayeg': 'https://cdn.7tv.app/emote/603caa69faf3a00014dff0b1/4x.webp',
+    'uuu': 'https://media.tenor.com/rJmV73DFwHcAAAAC/kizo-polska.gif',
 }
 
 
