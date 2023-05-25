@@ -60,29 +60,6 @@ async def on_message(message):
         return
 
 
-    global counter
-    counter += 1
-
-    if counter >= 50:
-        msg = random.choice(list(emotes.values()))
-        await message.channel.send(msg)
-        counter = 0
-
-
-    if "windows" in message.content.lower():
-        # Windows = DIESOFCRINGE
-        msg = "I FUCKIN' LOVE WINDOWS 'N ADS!"
-
-        # print the message as user
-        webhook = await message.channel.create_webhook( name=message.author.name )
-        await webhook.send( msg,
-username=message.author.name,
-avatar_url=message.author.avatar )
-
-        # clean up
-        await webhook.delete()
-
-
     for emote in emotes.keys():
         if message.content == emote:
             # delete the message (at the start to avoid 404s)
@@ -99,6 +76,35 @@ avatar_url=message.author.avatar )
 
             # delete the webhook
             await webhook.delete()
+
+            return
+
+
+    if "windows" in message.content.lower():
+        # Windows = DIESOFCRINGE
+        msg = "I FUCKIN' LOVE WINDOWS 'N ADS!"
+
+        # print the message as user
+        webhook = await message.channel.create_webhook( name=message.author.name )
+        await webhook.send( msg,
+username=message.author.name,
+avatar_url=message.author.avatar )
+
+        # clean up
+        await webhook.delete()
+
+        return
+
+
+    global counter
+    counter += 1
+
+    if counter >= 50:
+        msg = random.choice(list(emotes.values()))
+        await message.channel.send(msg)
+        counter = 0
+
+        return
 
 
 
