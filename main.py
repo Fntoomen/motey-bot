@@ -15,7 +15,7 @@ emotes = {
     'xdd': 'https://cdn.7tv.app/emote/613937fcf7977b64f644c0d2/3x.webp',
     'aha': 'https://cdn.7tv.app/emote/6287c2ca6d9cd2d1f31b5e7d/4x.gif',
     'Nerd': 'https://cdn.7tv.app/emote/6134bc74f67d73ea27e44b0f/4x.gif',
-    'oKurwa': 'https://media.tenor.com/xMbga2RiU1IAAAAC/o-kurwa-stachu-jones.gif',
+    'oKurwa': 'https://tenor.com/view/okurwa-kurwa-stachujones-stachu-jones-gif-13138130',
     'catKISS': 'https://cdn.7tv.app/emote/60a1babb3c3362f9a4b8b33a/4x.gif',
     'jasperJAM': 'https://cdn.7tv.app/emote/60aeb51cd970a5b9cfc1ba08/4x.gif',
     'witamCieKolezanko': 'https://cdn.7tv.app/emote/60ae7f2580dd689cc780be94/4x.gif',
@@ -44,10 +44,11 @@ emotes = {
     'peepoGlad': 'https://cdn.7tv.app/emote/603d32e968a0fc000dfdda1a/4x.webp',
     'Sadge': 'https://cdn.7tv.app/emote/603cac391cd55c0014d989be/4x.webp',
     'Okayeg': 'https://cdn.7tv.app/emote/603caa69faf3a00014dff0b1/4x.webp',
-    'uuu': 'https://media.tenor.com/rJmV73DFwHcAAAAC/kizo-polska.gif',
+    'uuu': 'https://tenor.com/view/kizo-polska-poland-song-uuuu-ajajaj-gif-24409594',
     'XD': 'https://cdn.discordapp.com/attachments/1111737407931424808/1111738118173892638/Z.png',
-    'livesey': 'https://media.tenor.com/brlIhh4QroIAAAAS/venom-treasure-island.gif',
+    'livesey': 'https://tenor.com/view/venom-treasure-island-dr-livesey-livesey-megaboss-gif-26407339',
     'chad': 'https://cdn.discordapp.com/attachments/1111737407931424808/1111738440271273994/279196103_1168316163927514_6190201642596978640_n.png',
+    '2137': 'https://tenor.com/view/jan-pawe%C5%822-jan-pawe%C5%82-jan-pawe%C5%82-jp2-gif-18747767',
 }
 
 
