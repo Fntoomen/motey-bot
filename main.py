@@ -49,6 +49,7 @@ emotes = {
     'livesey': 'https://tenor.com/view/venom-treasure-island-dr-livesey-livesey-megaboss-gif-26407339',
     'chad': 'https://cdn.discordapp.com/attachments/1111737407931424808/1111738440271273994/279196103_1168316163927514_6190201642596978640_n.png',
     '2137': 'https://tenor.com/view/jan-pawe%C5%822-jan-pawe%C5%82-jan-pawe%C5%82-jp2-gif-18747767',
+    'furas': 'https://tenor.com/view/furry-meme-missile-furry-alert-gif-24658735',
 }
 
 
