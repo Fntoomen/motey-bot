@@ -45,6 +45,9 @@ emotes = {
     'Sadge': 'https://cdn.7tv.app/emote/603cac391cd55c0014d989be/4x.webp',
     'Okayeg': 'https://cdn.7tv.app/emote/603caa69faf3a00014dff0b1/4x.webp',
     'uuu': 'https://media.tenor.com/rJmV73DFwHcAAAAC/kizo-polska.gif',
+    'XD': 'https://cdn.discordapp.com/attachments/1111737407931424808/1111738118173892638/Z.png',
+    'livesey': 'https://media.tenor.com/brlIhh4QroIAAAAS/venom-treasure-island.gif',
+    'chad': 'https://cdn.discordapp.com/attachments/1111737407931424808/1111738440271273994/279196103_1168316163927514_6190201642596978640_n.png',
 }
 
 
