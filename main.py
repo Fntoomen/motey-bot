@@ -11,6 +11,9 @@ db = mysql.connector.connect(
 )
 
 crsr = db.cursor()
+crsr.execute("SELECT * FROM emotes")
+
+emotes = crsr.fetchall()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -29,8 +32,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    crsr.execute("SELECT * FROM emotes")
-    emotes = crsr.fetchall()
     for emote in emotes:
         if message.content == emote[0]:
             # delete the message (at the start to avoid 404s)
