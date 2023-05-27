@@ -2,6 +2,7 @@ import discord
 import random
 import mysql.connector
 
+
 db = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -10,20 +11,15 @@ db = mysql.connector.connect(
 )
 
 crsr = db.cursor()
-
 crsr.execute("SELECT * FROM emotes")
 
 emotes = crsr.fetchall()
 
-
 intents = discord.Intents.default()
 intents.message_content = True
-
 client = discord.Client(intents=intents)
 
-
 counter = 0
-
 
 
 @client.event
@@ -36,15 +32,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-
     for emote in emotes:
-        if message.content == emote[5]:
+        if message.content == emote[0]:
             # delete the message (at the start to avoid 404s)
             await message.delete()
 
             # replace text with emote
-            with open("emotes/tmp."+emote[1], "wb") as f:
-                f.write(emote[2])
+            with open(emote[1], "rb") as f:
                 picture = discord.File(f)
             # print the message as user
                 webhook = await message.channel.create_webhook( name=message.author.name )
@@ -56,7 +50,6 @@ async def on_message(message):
                 await webhook.delete()
 
             return
-
 
     if "windows" in message.content.lower():
         # Windows = DIESOFCRINGE
@@ -73,20 +66,17 @@ avatar_url=message.author.avatar )
 
         return
 
-
     global counter
     counter += 1
-
     if counter >= 50:
         emote = random.choice(emotes)
-        with open("emotes/tmp."+emote[1], "wb") as f:
-            f.write(emote[2])
+        with open(emote[1], "rb") as f:
+            msg = "RANDOM EMOTE"
             picture = discord.File(f)
-            await message.channel.send(file=picture)
+            await message.channel.send(msg, file=picture)
+
         counter = 0
-
         return
-
 
 
 client.run('TOKEN')
