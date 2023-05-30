@@ -53,7 +53,7 @@ async def on_message(message):
 
 	if "windows" in message.content.lower():
 		# Windows = DIESOFCRINGE
-		msg = "I FUCKIN' LOVE WINDOWS 'N ADS!"
+		msg = "I FUCKIN' LOVE ADS!"
 
 		# print the message as user
 		webhook = await message.channel.create_webhook( name=message.author.name )
