@@ -25,7 +25,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    cur.execute("SELECT location FROM emotes WHERE name = %s", message.content)
+    cur.execute("SELECT location FROM emotes WHERE name = %s", (message.content,))
     emoteLocation = cur.fetchone()[0]
     if emoteLocation:
         # delete the message (at the start to avoid 404s)
@@ -60,9 +60,9 @@ async def on_message(message):
         cur.execute("SELECT COUNT(name) FROM emotes")
         emotesCount = cur.fetchone()[0]
         randomNumber = random.randint(1, emotesCount)
-        cur.execute("SELECT location FROM emotes WHERE id = %d", randomNumber)
+        cur.execute("SELECT location FROM emotes WHERE id = %d", (randomNumber,))
         emoteLocation = cur.fetchone()[0]
-        cur.execute("SELECT name FROM emotes WHERE id = %d", randomNumber)
+        cur.execute("SELECT name FROM emotes WHERE id = %d", (randomNumber,))
         emoteName = cur.fetchone()[0]
         with open(emoteLocation, "rb") as f:
             msg = f"Random emote: {emoteName}"
