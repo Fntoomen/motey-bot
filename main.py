@@ -26,8 +26,9 @@ async def on_message(message):
         return
 
     cur.execute("SELECT location FROM emotes WHERE name = %s", (message.content,))
-    emoteLocation = cur.fetchone()[0]
-    if emoteLocation:
+    emoteLocation = cur.fetchone()
+    if emoteLocation is not None:
+        emoteLocation = emoteLocation[0]
         # delete the message (at the start to avoid 404s)
         await message.delete()
         # replace text with emote
@@ -58,12 +59,18 @@ async def on_message(message):
     counter += 1
     if counter >= 50:
         cur.execute("SELECT COUNT(name) FROM emotes")
-        emotesCount = cur.fetchone()[0]
+        emotesCount = cur.fetchone()
+        if emotesCount is not None:
+            emotesCount = emotesCount[0]
         randomNumber = random.randint(1, emotesCount)
         cur.execute("SELECT location FROM emotes WHERE id = %d", (randomNumber,))
-        emoteLocation = cur.fetchone()[0]
+        emoteLocation = cur.fetchone()
+        if emoteLocation is not None:
+            emoteLocation = emoteLocation[0]
         cur.execute("SELECT name FROM emotes WHERE id = %d", (randomNumber,))
-        emoteName = cur.fetchone()[0]
+        emoteName = cur.fetchone()
+        if emoteName is not None:
+            emoteName = emoteName[0]
         with open(emoteLocation, "rb") as f:
             msg = f"Random emote: {emoteName}"
             picture = discord.File(f)
