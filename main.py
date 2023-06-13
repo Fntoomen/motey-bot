@@ -35,7 +35,7 @@ async def on_message(message):
     if emoteLocation is not None:
         emoteLocation = emoteLocation[0]
         cur.execute("UPDATE emotes SET times_used = times_used +1 WHERE location = %s", (emoteLocation,))
-        cur.commit()
+        conn.commit()
         # delete the message (at the start to avoid 404s)
         await message.delete()
         # replace text with emote
