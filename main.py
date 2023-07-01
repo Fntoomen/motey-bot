@@ -19,12 +19,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-counter = 0
-
-@client.event
-async def on_ready():
-    print(f'We have logged in as {client.user}')
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -48,41 +42,6 @@ async def on_message(message):
                                avatar_url=message.author.avatar)
             # delete the webhook
             await webhook.delete()
-        return
-
-    if "windows" in message.content.lower():
-        # Windows = DIESOFCRINGE
-        msg = "I FUCKIN' LOVE ADS!"
-        # print the message as user
-        webhook = await message.channel.create_webhook( name=message.author.name )
-        await webhook.send(msg,
-                           username=message.author.name,
-                           avatar_url=message.author.avatar)
-        # clean up
-        await webhook.delete()
-        return
-
-    global counter
-    counter += 1
-    if counter >= 50:
-        cur.execute("SELECT COUNT(name) FROM emotes")
-        emotesCount = cur.fetchone()
-        if emotesCount is not None:
-            emotesCount = emotesCount[0]
-        randomNumber = random.randint(1, emotesCount)
-        cur.execute("SELECT location FROM emotes WHERE id = %d", (randomNumber,))
-        emoteLocation = cur.fetchone()
-        if emoteLocation is not None:
-            emoteLocation = emoteLocation[0]
-        cur.execute("SELECT name FROM emotes WHERE id = %d", (randomNumber,))
-        emoteName = cur.fetchone()
-        if emoteName is not None:
-            emoteName = emoteName[0]
-        with open(emoteLocation, "rb") as f:
-            msg = f"Random emote: {emoteName}"
-            picture = discord.File(f)
-            await message.channel.send(msg, file=picture)
-        counter = 0
         return
 
 client.run('TOKEN')
