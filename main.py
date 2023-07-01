@@ -15,10 +15,9 @@ conn = mariadb.connect (
         )
 cur = conn.cursor()
 
-activity = discord.Activity(type=discord.ActivityType.watching, name="YOUR MOM")
 intents = discord.Intents.default()
 intents.message_content = True
-client = discord.Client(intents=intents, activity=activity)
+client = discord.Client(intents=intents)
 
 counter = 0
 
