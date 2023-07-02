@@ -38,7 +38,7 @@ async def on_message(message):
             # print the message as user
             webhook = await message.channel.create_webhook( name=message.author.name )
             await webhook.send(file=picture,
-                               username=message.author.name,
+                               username=message.author.nick,
                                avatar_url=message.author.avatar)
             # delete the webhook
             await webhook.delete()
